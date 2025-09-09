@@ -14,11 +14,12 @@
   --radius: 8px;
 
   /* Color tokens for a barber theme (adjust to your palette) */
-  --bg: #0e0e0e;
+  --bg: #0c172c;
   --surface: #151515;
-  --text: #e8e8e8;
+  --text: #f7fbdd;
   --muted: #bdbdbd;
   --accent: #d32f2f;
+  --button: #9810fa;
   /* barber red */
   --accent-2: #3b82f6;
   /* blue accent for contrast */
@@ -85,4 +86,26 @@ body {
 
 .mb-3 {
   margin-bottom: 24px;
+}
+
+.label {
+  color: var(--text);
+}
+
+.bgregform {
+  background-color: var(--bg);
+}
+.bgregform h1{
+  color: var(--button);
+  font-size: xx-large;
+  font-weight: bold;
+}
+.terms{
+  color: var(--button);
+  font-size: medium;
+  font-weight: bold;
+}
+
+.btnreg {
+  background-color: var(--button);
 }
