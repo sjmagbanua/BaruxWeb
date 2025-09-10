@@ -2,14 +2,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { useState } from 'react';
 
 export default function RegisterForm() {
     const [isChecked, setIsChecked] = useState(false);
-
+    const [isVisible, setIsVisible] = useState(false);
+    const [isVisibleConfirmPass, setIsVisibleConfirmPass] = useState(false);
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
     };
+
+    const toggleVisibility = () => {
+        setIsVisible(!isVisible);
+    }
+
+    const confirmPasstoggleVisibility = () => {
+        setIsVisibleConfirmPass(!isVisibleConfirmPass);
+    }
     return (
         <>
             <div className="h-screen p-8">
@@ -20,25 +32,43 @@ export default function RegisterForm() {
                     </div>
                     <div className="w-1/2 p-24 bgregform">
                         <h1 className='pb-16'>Create an account</h1>
-                        <form action="" className='flex flex-col justify-center'>
+                        <form action="" className='flex flex-col justify-center input-form'>
                             <label htmlFor="" >Fullname</label>
-                            <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' />
+                            <div className='relative w-full'>
+                                <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' placeholder='Fullname' />
+                                <AccountBoxOutlinedIcon className="input-icon absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                            </div>
                             <br />
                             <label htmlFor="">Email</label>
-                            <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' />
+                            <div className='relative w-full'>
+                                <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' placeholder='Email' />
+                                <EmailOutlinedIcon className="input-icon absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                            </div>
                             <br />
                             <label htmlFor="">Password</label>
-                            <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' />
+                            <div className='relative w-full'>
+                                <input type={isVisible ? "text" : "password"} className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' placeholder='Password' />
+                                <button type="button" onClick={toggleVisibility} >
+                                    {isVisible ? <RemoveRedEyeOutlinedIcon className="input-icon absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" /> :
+                                        <VisibilityOffOutlinedIcon className="input-icon absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" />}
+                                </button>
+                            </div>
                             <br />
-                            <label htmlFor="">CofnirmPassword</label>
-                            <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' />
+                            <label htmlFor="">ConfirmPassword</label>
+                            <div className='relative w-full'>
+                                <input type={isVisibleConfirmPass ? "text" : "password"} className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0'
+                                    placeholder='ConfirmPassword' />
+                                <button type="button" onClick={confirmPasstoggleVisibility} >
+                                    {isVisibleConfirmPass ? <RemoveRedEyeOutlinedIcon className="input-icon absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" /> :
+                                        <VisibilityOffOutlinedIcon className="input-icon absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" />}
+                                </button>
+                            </div>
                             <div className='flex items-center space-x-2 pt-8 pb-8'>
                                 <input
                                     type="checkbox"
                                     id="myCheckbox"
                                     checked={isChecked}
                                     onChange={handleCheckboxChange}
-
                                 />
                                 <p className=''>I accept the</p>
                                 <Link href="/dashboard" className='terms'>Terms and Conditions</Link>
