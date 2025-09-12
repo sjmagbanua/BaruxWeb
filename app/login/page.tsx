@@ -32,14 +32,8 @@ export default function LoginForm() {
                         <Image src='/images/register.png' alt='programming' width={500} height={500} />
                     </div>
                     <div className="w-1/2 p-24 bgregform">
-                        <h1 className='pb-16'>Create an account</h1>
+                        <h1 className='pb-16'>Login an account</h1>
                         <form action="" className='flex flex-col justify-center input-form'>
-                            <label htmlFor="" >Fullname</label>
-                            <div className='relative w-full'>
-                                <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' placeholder='Fullname' />
-                                <AccountBoxOutlinedIcon className="input-icon absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500" />
-                            </div>
-                            <br />
                             <label htmlFor="">Email</label>
                             <div className='relative w-full'>
                                 <input type="text" className='w-full border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-0' placeholder='Email' />
